@@ -12,6 +12,9 @@ A Flutter application for managing student information, featuring functionalitie
 - **Input Validations**: Ensures that required fields are filled correctly when adding or updating a student.
 - **Error Handling and Feedback**: Informative snackbars provide feedback for success, failure, and duplicate entries.
 
+![Untitled Project](https://github.com/user-attachments/assets/d0a9d4cc-97f3-44e8-b40a-2cef415c55ea)
+
+
 ## Project Structure
 
 The project is organized into the following structure:
@@ -61,12 +64,17 @@ To ensure data integrity, the following validations are applied:
 - **Unique Student ID**: When adding a new student, the app checks if a student with the provided `studentId` already exists in the database, prompting an error if found.
 - **Data Constraints**: Phone number and email fields are validated to match common formats, though specific regex patterns can be added for further strictness.
 
+![Untitled Project(2)](https://github.com/user-attachments/assets/26ceb966-9250-4538-ae3b-b432b44f10f0)
+
 ## Snackbar Notifications
 
 Snackbars provide feedback across the app for actions like adding, updating, or deleting a student. Specific error and success messages appear based on outcomes:
 - **Success**: Displays upon successful addition or deletion.
 - **Error**: Shows if an action fails.
 - **Duplicate Entry**: If a duplicate student ID is detected, an error snackbar appears.
+
+![Untitled Project(3)](https://github.com/user-attachments/assets/7492f2e5-e6ac-4c46-9e0e-81cd2dc6fe2a)
+
 
 ## Code Walkthrough
 
