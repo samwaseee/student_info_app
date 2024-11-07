@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
                   shape: WidgetStateProperty.all(RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   )),
-                  minimumSize: WidgetStateProperty.all(Size(250, 50)),
+                  minimumSize: WidgetStateProperty.all(const Size(250, 50)),
                   elevation: WidgetStateProperty.all(10),
                 ),
                 child: Text('Add Student', style: GoogleFonts.aboreto(
@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
                   shape: WidgetStateProperty.all(RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   )),
-                  minimumSize: WidgetStateProperty.all(Size(250, 50)),
+                  minimumSize: WidgetStateProperty.all(const Size(250, 50)),
                   elevation: WidgetStateProperty.all(10),
                 ),
                 child: Text('View Students', style: GoogleFonts.aboreto(

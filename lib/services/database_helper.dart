@@ -38,8 +38,9 @@ class DatabaseHelper {
 
   Future<Database> get database async {
     //Defines a getter named database that returns a Future<Database>. This getter is responsible for providing access to the database instance.
-    if (_database != null)
+    if (_database != null) {
       return _database!; //If the _database variable is not null (meaning the database is already initialized), it returns the existing instance. The ! is used to assert that _database is not null.
+    }
     _database =
         await _initDb(); //If the _database variable is null, it calls the _initDb method to initialize the database.
     return _database!;
@@ -59,7 +60,7 @@ class DatabaseHelper {
           CREATE TABLE $tableStudents (
             $columnId INTEGER PRIMARY KEY AUTOINCREMENT,
             $columnName TEXT NOT NULL,
-            $columnStudentId TEXT NOT NULL,
+            $columnStudentId TEXT NOT NULL UNIQUE,
             $columnPhone TEXT NOT NULL,
             $columnEmail TEXT NOT NULL,
             $columnLocation TEXT NOT NULL
@@ -90,6 +91,27 @@ class DatabaseHelper {
     return maps
         .map((e) => Student.fromMap(e))
         .toList(); //Maps each map to a Student object using the Student.fromMap method and returns the list of Student objects.
+  }
+
+  Future<Student?> getStudentById (String studentId) async {
+    final db = await database;
+    final List<Map<String, dynamic>> maps = await db.query(
+        tableStudents,
+        where: '$columnStudentId = ?',
+        whereArgs: [studentId]
+    );
+    if (maps.isNotEmpty) {
+      return Student.fromMap(maps.first);
+    }
+    return null;
+  }
+
+  Future<int> updateStudent(Student student) async {
+    final db = await database;
+    return await db.update(tableStudents, student.toMap(),
+        where: '$columnId = ?',
+        whereArgs: [student.id]
+    ); //Updates a student in the students table based on their ID.
   }
 
   Future<int> deleteStudent(int id) async {

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Student Info App',
-      home: HomePage(),
+      home: const HomePage(),
       getPages: [
         GetPage(
           name: '/addStudent',
